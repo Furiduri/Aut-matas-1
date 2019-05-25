@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <!---VUE.js-->
+    <script src="vue.js"></script>
+
+    <title>Automata 1</title>
+</head>
+
+<body>
+    <div class="container"></div>
+    <nav class="navbar bg-dark">
+        <h1 class="text-white">Automata 1</h1>
+    </nav>
+
+    <section class="container-fluid p-4">
+        <div id="app" class="row">
+            <div class="col-lg-6 col-xs-12 p-4">
+                <div class="input-group">
+                    <input id="txtValor" class="form-control w-auto" type="text" placeholder="Escribe algo ">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-xs-12">
+                <div v-if="errors === null" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <h3><b>Gcatcode - Teoría de Autómatas : Proyecto 1</b></h3>
+                    <div class="row">
+                        <embed src="Proyecto1_Automatas.pdf" width="100%" height="450px">
+                    </div>
+                </div>
+                <div v-else-if="errors === false" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <h3><b>Resultados del parrafo:</b></h3>
+                    <h4 v-html="MSG" class="text-muted bg-white text-monospace rounded">
+                    </h4>
+                    <ul>
+                        <li>
+                            Cantidad de tokens aceptados : <b>{{Ttrue}}</b>
+                        </li>
+                        <li>
+                            Cantidad de tokens No aceptados: <b>{{TFalse}}</b>
+                        </li>
+                        <li>
+                            Identificador : <b>{{TIdent}}</b>
+                        </li>
+                        <li>
+                            Real sin signo : <b>{{TFlooat}}</b>
+                        </li>
+                        <li>
+                            Entero sin signo : <b>{{TInt}}</b>
+                        </li>
+                        <li>
+                            Asignación : <b>{{TAsig}}</b>
+                        </li>
+                        <li>
+                            Fin de sentencia: <b>{{TEnd}}</b>
+                        </li>
+                        <li>
+                            Suma: <b>{{TSum}}</b>
+                        </li>
+                        <li>
+                            Total de Tokens: <b>{{TTotal}}</b>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    <!-- Scrip de la aplicacion -->
+    <script src="Main.js"></script>
+</body>
+
+</html>
