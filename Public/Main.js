@@ -20,7 +20,7 @@ const app = new Vue({
 
 //Se ejecuta cada ves cambia el valor del input txtValor
 document.getElementById("txtValor").addEventListener('keyup', function (event) {
-    var Valor = this.value;
+    var Valor = this.value.trim();
     Valor = Valor.replace(/\s+/g, ' ');
     if (Valor == null || Valor.length == 0 || /^\s*$/.test(Valor)) {
         app.MSG = "";
@@ -102,12 +102,13 @@ function IsValidVar(Token) {
             //Identificador valido
         default:
             //Si el primer caracter no es un numero
-            if (isNaN(Token.substring(0, 1))) {
+            if (isNaN(Token.replace(/[\(\)]/g, '').substring(0, 1))) {
                 if (/^([\(]?[A-Za-z\-\_0-9]{1,}[\)]?)+$/.test(Token)) {
                     app.TIdent += 1;
                     return true;
                 }
             }
+
             app.TFalse += 1;
             return false;
     }
